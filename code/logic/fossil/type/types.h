@@ -33,40 +33,68 @@ extern "C" {
 #include <stddef.h>
 #include <stdbool.h>
 
-/* Signed integers */
+/* ======================================================
+ * Signed integers
+ * ====================================================== */
 typedef int8_t   fossil_type_i8;   typedef fossil_type_i8   i8;
 typedef int16_t  fossil_type_i16;  typedef fossil_type_i16  i16;
 typedef int32_t  fossil_type_i32;  typedef fossil_type_i32  i32;
 typedef int64_t  fossil_type_i64;  typedef fossil_type_i64  i64;
 
-/* Unsigned integers */
+/* ======================================================
+ * Unsigned integers
+ * ====================================================== */
 typedef uint8_t  fossil_type_u8;   typedef fossil_type_u8   u8;
 typedef uint16_t fossil_type_u16;  typedef fossil_type_u16  u16;
 typedef uint32_t fossil_type_u32;  typedef fossil_type_u32  u32;
 typedef uint64_t fossil_type_u64;  typedef fossil_type_u64  u64;
 
-/* Floating */
+/* ======================================================
+ * Hexadecimal types (alias for unsigned)
+ * ====================================================== */
+typedef fossil_type_u8   fossil_type_h8;   typedef fossil_type_h8   h8;
+typedef fossil_type_u16  fossil_type_h16;  typedef fossil_type_h16  h16;
+typedef fossil_type_u32  fossil_type_h32;  typedef fossil_type_h32  h32;
+typedef fossil_type_u64  fossil_type_h64;  typedef fossil_type_h64  h64;
+
+/* ======================================================
+ * Octal types (alias for unsigned)
+ * ====================================================== */
+typedef fossil_type_u8   fossil_type_o8;   typedef fossil_type_o8   o8;
+typedef fossil_type_u16  fossil_type_o16;  typedef fossil_type_o16  o16;
+typedef fossil_type_u32  fossil_type_o32;  typedef fossil_type_o32  o32;
+typedef fossil_type_u64  fossil_type_o64;  typedef fossil_type_o64  o64;
+
+/* ======================================================
+ * Binary types (alias for unsigned)
+ * ====================================================== */
+typedef fossil_type_u8   fossil_type_b8;   typedef fossil_type_b8   b8;
+typedef fossil_type_u16  fossil_type_b16;  typedef fossil_type_b16  b16;
+typedef fossil_type_u32  fossil_type_b32;  typedef fossil_type_b32  b32;
+typedef fossil_type_u64  fossil_type_b64;  typedef fossil_type_b64  b64;
+
+/* ======================================================
+ * Floating
+ * ====================================================== */
 typedef float    fossil_type_f32;  typedef fossil_type_f32  f32;
 typedef double   fossil_type_f64;  typedef fossil_type_f64  f64;
 
-/* Size */
+/* ======================================================
+ * Size
+ * ====================================================== */
 typedef ptrdiff_t fossil_type_isize; typedef fossil_type_isize isize;
 typedef size_t    fossil_type_usize; typedef fossil_type_usize usize;
 
-/* Char + strings */
+/* ======================================================
+ * Char + strings
+ * ====================================================== */
 typedef char fossil_type_char; typedef fossil_type_char char_t;
 typedef char* fossil_type_cstr; typedef fossil_type_cstr cstr;
 
-/* Boolean */
+/* ======================================================
+ * Boolean
+ * ====================================================== */
 typedef bool fossil_type_bool; typedef fossil_type_bool bool_t;
-
-/* Any */
-typedef struct fossil_type_any {
-    void* data;
-    const char* type_id;
-} fossil_type_any;
-
-typedef fossil_type_any any;
 
 #ifdef __cplusplus
 }
