@@ -26,24 +26,24 @@
 #define FOSSIL_TYPE_CONVERTER_H
 
 #include "types.h"
-#include "attributes.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-/* -----------------------------
- * Converter function signature
- * ----------------------------- */
+/* ------------------------------------------------------
+ * Converter function interface
+ * ------------------------------------------------------
+ * Use raw data pointer + type ID instead of `any`
+ */
 typedef int (*fossil_type_converter_fn)(
-    const fossil_type_attribute_value* input,
-    fossil_type_attribute_value* output,
+    const void* input,
+    const char* input_type,
+    void* output,
+    const char* output_type,
     void* user
 );
 
-/* -----------------------------
- * Converter registration struct
- * ----------------------------- */
 typedef struct fossil_type_converter {
     const char* from_type;
     const char* to_type;
@@ -51,31 +51,23 @@ typedef struct fossil_type_converter {
     void* user;
 } fossil_type_converter;
 
-/* -----------------------------
- * Registration
- * ----------------------------- */
+/* Registration */
 int fossil_type_converter_register(
     fossil_type_converter* converter);
 
-/* -----------------------------
- * Execution
- * ----------------------------- */
+/* Execution */
 int fossil_type_converter_apply(
     const char* from_type,
     const char* to_type,
-    const fossil_type_attribute_value* input,
-    fossil_type_attribute_value* output);
+    const void* input,
+    void* output);
 
 #ifdef __cplusplus
 }
 #endif
 
 
-/* ==============================
- * C++ Wrapper
- * ============================== */
 #ifdef __cplusplus
-
 namespace fossil::type {
 
 class Converter {
@@ -96,10 +88,13 @@ public:
     bool register_converter() {
         return fossil_type_converter_register(&c) == 0;
     }
+
+    int apply(const void* input, void* output) const {
+        return fossil_type_converter_apply(c.from_type, c.to_type, input, output);
+    }
 };
 
-}
-
+} // namespace fossil::type
 #endif
 
 #endif
