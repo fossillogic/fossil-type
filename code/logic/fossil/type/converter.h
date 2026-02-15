@@ -26,17 +26,24 @@
 #define FOSSIL_TYPE_CONVERTER_H
 
 #include "types.h"
+#include "attributes.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
+/* -----------------------------
+ * Converter function signature
+ * ----------------------------- */
 typedef int (*fossil_type_converter_fn)(
-    const fossil_type_any* input,
-    fossil_type_any* output,
+    const fossil_type_attribute_value* input,
+    fossil_type_attribute_value* output,
     void* user
 );
 
+/* -----------------------------
+ * Converter registration struct
+ * ----------------------------- */
 typedef struct fossil_type_converter {
     const char* from_type;
     const char* to_type;
@@ -44,21 +51,29 @@ typedef struct fossil_type_converter {
     void* user;
 } fossil_type_converter;
 
-/* Registration */
+/* -----------------------------
+ * Registration
+ * ----------------------------- */
 int fossil_type_converter_register(
     fossil_type_converter* converter);
 
-/* Execution */
+/* -----------------------------
+ * Execution
+ * ----------------------------- */
 int fossil_type_converter_apply(
     const char* from_type,
     const char* to_type,
-    const fossil_type_any* input,
-    fossil_type_any* output);
+    const fossil_type_attribute_value* input,
+    fossil_type_attribute_value* output);
 
 #ifdef __cplusplus
 }
 #endif
 
+
+/* ==============================
+ * C++ Wrapper
+ * ============================== */
 #ifdef __cplusplus
 
 namespace fossil::type {
