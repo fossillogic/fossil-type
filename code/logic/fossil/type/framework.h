@@ -28,13 +28,12 @@
 // Include the necessary headers
 #include "types.h"
 #include "tribool.h"
-#include "bool.h"
 #include "feature.h"
 #include "combo.h"
 #include "lambda.h"
 #include "adapter.h"
 #include "converter.h"
-#include "introspect.h"
+#include "attribute.h"
 #include "limits.h"
 
 #endif /* FOSSIL_TYPE_FRAMEWORK_H */
