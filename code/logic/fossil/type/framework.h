@@ -29,7 +29,6 @@
 #include "types.h"
 #include "tribool.h"
 #include "feature.h"
-#include "combo.h"
 #include "lambda.h"
 #include "adapter.h"
 #include "converter.h"
