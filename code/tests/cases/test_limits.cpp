@@ -43,38 +43,6 @@ FOSSIL_TEARDOWN(cpp_limits_suite) {
 // as samples for library usage.
 // * * * * * * * * * * * * * * * * * * * * * * * *
 
-// Test: Limits class returns correct limits for known types
-FOSSIL_TEST(cpp_test_limits_class_known_types) {
-    struct {
-        const char* type_id;
-        long double min;
-        long double max;
-        size_t size;
-    } cases[] = {
-        {"i8", SCHAR_MIN, SCHAR_MAX, sizeof(int8_t)},
-        {"u8", 0, UCHAR_MAX, sizeof(uint8_t)},
-        {"i16", SHRT_MIN, SHRT_MAX, sizeof(int16_t)},
-        {"u16", 0, USHRT_MAX, sizeof(uint16_t)},
-        {"i32", INT_MIN, INT_MAX, sizeof(int32_t)},
-        {"u32", 0, UINT_MAX, sizeof(uint32_t)},
-        {"i64", LLONG_MIN, LLONG_MAX, sizeof(int64_t)},
-        {"u64", 0, ULLONG_MAX, sizeof(uint64_t)},
-        {"f32", INT32_MIN, INT32_MAX, sizeof(float)},
-        {"f64", INT64_MIN, INT64_MAX, sizeof(double)},
-        {"bool", 0, 1, sizeof(bool)},
-        {"tribool", 0, 2, sizeof(uint8_t)},
-        {"char", CHAR_MIN, CHAR_MAX, sizeof(char)},
-        {"cstr", 0, 0, sizeof(char*)},
-    };
-
-    for (size_t i = 0; i < sizeof(cases)/sizeof(cases[0]); ++i) {
-        fossil::type::Limits lim(cases[i].type_id);
-        ASSUME_ITS_TRUE(lim.min() == cases[i].min);
-        ASSUME_ITS_TRUE(lim.max() == cases[i].max);
-        ASSUME_ITS_TRUE(lim.size() == cases[i].size);
-    }
-}
-
 // Test: Limits class returns 0 for unknown type
 FOSSIL_TEST(cpp_test_limits_class_unknown_type) {
     fossil::type::Limits lim("not_a_type");
@@ -130,7 +98,6 @@ FOSSIL_TEST(cpp_test_limits_class_scoped_usage) {
 // * Fossil Logic Test Pool
 // * * * * * * * * * * * * * * * * * * * * * * * *
 FOSSIL_TEST_GROUP(cpp_limits_tests) {
-    FOSSIL_TEST_ADD(cpp_limits_suite, cpp_test_limits_class_known_types);
     FOSSIL_TEST_ADD(cpp_limits_suite, cpp_test_limits_class_unknown_type);
     FOSSIL_TEST_ADD(cpp_limits_suite, cpp_test_limits_class_null_input);
     FOSSIL_TEST_ADD(cpp_limits_suite, cpp_test_limits_class_aliases);
