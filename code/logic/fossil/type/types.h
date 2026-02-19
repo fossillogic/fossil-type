@@ -193,7 +193,7 @@ typedef fossil_type_ref ref;
     *
     * Example:
     *     atom id = fossil_intern("user_id");
-    *     if(id == other_id) { /* pointer equality / }
+    *     if(id == other_id) { // pointer equality // }
     * ====================================================== */
 typedef const void *fossil_type_atom;
 typedef fossil_type_atom atom;
