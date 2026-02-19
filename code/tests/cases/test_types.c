@@ -77,10 +77,10 @@ FOSSIL_TEST(c_test_type_octal_aliases) {
 
 // Test: Binary aliases
 FOSSIL_TEST(c_test_type_binary_aliases) {
-    b8 a = 0b10101010; ASSUME_ITS_EQUAL_I32(a, 170);
-    b16 b = 0b1111000011110000; ASSUME_ITS_EQUAL_I32(b, 61680);
-    b32 c = 0b10101010101010101010101010101010U; ASSUME_ITS_TRUE(c == 0xAAAAAAAAU);
-    b64 d = 0b1ULL << 63; ASSUME_ITS_TRUE(d == 0x8000000000000000ULL);
+    b8  a = 0xAA;                     ASSUME_ITS_EQUAL_I32(a, 170);
+    b16 b = 0xF0F0;                   ASSUME_ITS_EQUAL_I32(b, 61680);
+    b32 c = 0xAAAAAAAAU;              ASSUME_ITS_TRUE(c == 0xAAAAAAAAU);
+    b64 d = 0x8000000000000000ULL;    ASSUME_ITS_TRUE(d == 0x8000000000000000ULL);
 }
 
 // Test: Floating point types
