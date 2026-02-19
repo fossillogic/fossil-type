@@ -1,28 +1,54 @@
 ## **Fossil Type by Fossil Logic**
 
-**Fossil Type** is a lightweight, cross-platform type system library written in pure C with optional C++ wrappers, designed to provide a stable and expressive foundation for type safety, casting, introspection, and functional adaptation across the Fossil ecosystem. Built for portability and long-term maintainability, Fossil Type introduces a unified set of core primitives, extended logical types, and runtime-safe conversion utilities without introducing runtime overhead or external dependencies.
+**Fossil Type** is a lightweight, cross-platform type system library written in C, with optional C++ wrappers. It provides stable type safety, introspection, deterministic limits, and functional adaptation across the Fossil ecosystem. Suitable for data processing, algorithms, AI systems, and embedded environments.
 
-Fossil Type acts as the structural backbone for higher-level libraries—enabling consistent type semantics across data processing, algorithms, AI systems, and infrastructure modules while remaining suitable for embedded and performance-critical environments.
+---
 
-### Key Features
+## Key Features
 
 - **Cross-Platform & ABI-Stable**  
-  Provides a consistent type layer across Windows, macOS, Linux, and embedded targets with a C-friendly ABI and optional C++ class wrappers.
+  Consistent type layer across Windows, macOS, Linux, and embedded targets with a C-friendly ABI and optional C++ wrappers.
 
-- **Unified Primitive & Logical Types**  
-  Includes fixed-width integers, floating types, string references, pointer abstractions, tri-state logic (`tribool`), and extensible structural types such as `feature`, `combo`, and `ghost`.
+- **Unified Core & Logical Types**  
+  Fixed-width integers, unsigned/hex/oct variants, floating types, string/pointer abstractions, and **tri-state logic (`tribool`)** with deterministic limits.
 
-- **Safe Casting & Conversion Model**  
-  Supports both static and dynamic casting through explicit converter and adapter interfaces, enabling safe transformations between types without hidden runtime behavior.
+- **Feature & Structural Extensions**  
+  Supports `feature`, and `tribool` structural types for modular composition.
 
-- **Introspection & Functional Interfaces**  
-  Built-in interfaces for type inspection, adaptation, and functional wrapping allow Fossil libraries to reason about types at runtime while remaining deterministic and auditable.
+- **Runtime-Safe Casting & Conversion**  
+  Explicit converters prevent unsafe narrowing or implicit promotions.
+
+- **Type Introspection & Functional Interfaces**  
+  Access type metadata, size, kind, and min/max values at runtime. Supports deterministic functional transformations.
+
+- **Tribool Support**  
+  Three-state logic: `false = 0`, `true = 1`, `unknown = 2`.
 
 - **Zero External Dependencies**  
-  Implemented entirely in portable C with optional C++ namespace wrappers, ensuring transparency, long-term stability, and suitability for restricted or audited environments.
+  Fully portable C implementation with optional C++ wrappers. No runtime dependencies.
 
-- **Foundation for the Fossil Ecosystem**  
-  Serves as the canonical type layer for Fossil Data, algorithm libraries, AI systems, and future infrastructure components—ensuring interoperability and predictable behavior across all modules.
+---
+
+## Fossil Type Limits
+
+| Type       | Kind       | Min Value                      | Max Value                          | Size (bytes) |
+|------------|-----------|--------------------------------|-----------------------------------|--------------|
+| `i8`       | Signed    | -128                           | 127                               | 1            |
+| `i16`      | Signed    | -32,768                        | 32,767                            | 2            |
+| `i32`      | Signed    | -2,147,483,647                 | 2,147,483,647                     | 4            |
+| `i64`      | Signed    | -9,223,372,036,854,775,808    | 9,223,372,036,854,775,807        | 8            |
+| `u8`       | Unsigned  | 0                              | 255                               | 1            |
+| `u16`      | Unsigned  | 0                              | 65,535                            | 2            |
+| `u32`      | Unsigned  | 0                              | 4,294,967,295                     | 4            |
+| `u64`      | Unsigned  | 0                              | 18,446,744,073,709,551,615       | 8            |
+| `f32`      | Float     | -3.4028235e+38                 | 3.4028235e+38                     | 4            |
+| `f64`      | Float     | -1.7976931e+308                | 1.7976931e+308                    | 8            |
+| `bool`     | Boolean   | 0                              | 1                                 | 1            |
+| `tribool`  | Tribool   | 0                              | 2                                 | 1            |
+| `char`     | Signed    | -128                           | 127                               | 1            |
+| `cstr`     | Pointer   | —                              | —                                 | 8 (pointer) |
+
+---
 
 ## ***Prerequisites***
 

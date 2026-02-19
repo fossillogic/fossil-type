@@ -29,10 +29,6 @@
 #include "types.h"
 #include "tribool.h"
 #include "feature.h"
-#include "lambda.h"
-#include "adapter.h"
-#include "converter.h"
-#include "attribute.h"
 #include "limits.h"
 
 #endif /* FOSSIL_TYPE_FRAMEWORK_H */

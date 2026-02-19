@@ -5,13 +5,9 @@ add_project_arguments('-D_POSIX_C_SOURCE=200112L', language: 'cpp')
 
 fossil_type_lib = library('fossil_type',
     files(
-        'adapter.c',
-        'attribute.c',
-        'converter.c',
-        'lambda.c',
         'feature.c',
         'tribool.c',
-        'limits.c',
+        'limits.c'
     ),
     install: true,
     dependencies: [cc.find_library('m', required: false)],
