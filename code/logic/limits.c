@@ -27,6 +27,7 @@
 #include <stddef.h>
 #include <float.h>
 #include <limits.h>
+#include <stdbool.h>
 
 /* ======================================================
  * Static limits table for all core Fossil types
@@ -64,8 +65,8 @@ static const fossil_type_limits fossil_limits_table[] = {
     {"b64",0, ULLONG_MAX,sizeof(uint64_t)},
 
     /* Floating */
-    {"f32", -FLT_MAX, FLT_MAX, sizeof(float)},
-    {"f64", -DBL_MAX, DBL_MAX, sizeof(double)},
+    {"f32", INT32_MIN, INT32_MAX, sizeof(float)},
+    {"f64", INT64_MIN, INT64_MAX, sizeof(double)},
 
     /* Boolean */
     {"bool", 0, 1, sizeof(bool)},
@@ -80,7 +81,7 @@ static const fossil_type_limits fossil_limits_table[] = {
 
 /* Number of entries */
 static const size_t fossil_limits_count =
-    sizeof(fossil_limits_table)/sizeof(fossil_limits_table[0]);
+    sizeof(fossil_limits_table) / sizeof(fossil_limits_table[0]);
 
 /* ======================================================
  * Query function

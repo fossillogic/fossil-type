@@ -36,12 +36,35 @@ typedef struct fossil_type_feature {
 
 typedef fossil_type_feature feature;
 
-/* Creation */
+/**
+ * @brief Creates a new feature with the specified name and enabled state.
+ *
+ * @param name The name of the feature.
+ * @param enabled Non-zero to enable the feature, zero to disable.
+ * @return A feature struct initialized with the given name and state.
+ */
 feature fossil_type_feature_make(const char* name, int enabled);
 
-/* Operations */
+/**
+ * @brief Checks if the specified feature is enabled.
+ *
+ * @param f Pointer to the feature to check.
+ * @return Non-zero if the feature is enabled, zero otherwise.
+ */
 int fossil_type_feature_is_enabled(const feature* f);
+
+/**
+ * @brief Enables the specified feature.
+ *
+ * @param f Pointer to the feature to enable.
+ */
 void fossil_type_feature_enable(feature* f);
+
+/**
+ * @brief Disables the specified feature.
+ *
+ * @param f Pointer to the feature to disable.
+ */
 void fossil_type_feature_disable(feature* f);
 
 #ifdef __cplusplus
@@ -55,10 +78,29 @@ namespace fossil::type {
 class Feature {
     feature f;
 public:
+    /**
+     * @brief Constructs a new Feature object with the given name and enabled state.
+     *
+     * @param n The name of the feature.
+     * @param e Optional boolean to set the initial enabled state (default is false).
+     */
     Feature(const char* n,bool e=false){ f=fossil_type_feature_make(n,e); }
 
+    /**
+     * @brief Checks if the feature is currently enabled.
+     * 
+     * @return true if the feature is enabled, false otherwise.
+     */
     bool enabled() const { return fossil_type_feature_is_enabled(&f); }
+
+    /**
+     * @brief Enables the feature.
+     */
     void enable(){ fossil_type_feature_enable(&f); }
+
+    /**
+     * @brief Disables the feature.
+     */
     void disable(){ fossil_type_feature_disable(&f); }
 };
 
