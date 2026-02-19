@@ -28,6 +28,7 @@
 #include <float.h>
 #include <limits.h>
 #include <stdbool.h>
+#include <string.h>
 
 /* ======================================================
  * Static limits table for all core Fossil types
