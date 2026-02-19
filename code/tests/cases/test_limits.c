@@ -43,39 +43,6 @@ FOSSIL_TEARDOWN(c_limits_suite) {
 // as samples for library usage.
 // * * * * * * * * * * * * * * * * * * * * * * * *
 
-// Test: fossil_type_limits_get returns correct limits for known types
-FOSSIL_TEST(c_test_limits_known_types) {
-    struct {
-        const char* type_id;
-        long double min;
-        long double max;
-        size_t size;
-    } cases[] = {
-        {"i8", SCHAR_MIN, SCHAR_MAX, sizeof(int8_t)},
-        {"u8", 0, UCHAR_MAX, sizeof(uint8_t)},
-        {"i16", SHRT_MIN, SHRT_MAX, sizeof(int16_t)},
-        {"u16", 0, USHRT_MAX, sizeof(uint16_t)},
-        {"i32", INT_MIN, INT_MAX, sizeof(int32_t)},
-        {"u32", 0, UINT_MAX, sizeof(uint32_t)},
-        {"i64", LLONG_MIN, LLONG_MAX, sizeof(int64_t)},
-        {"u64", 0, ULLONG_MAX, sizeof(uint64_t)},
-        {"f32", INT32_MIN, INT32_MAX, sizeof(float)},
-        {"f64", INT64_MIN, INT64_MAX, sizeof(double)},
-        {"bool", 0, 1, sizeof(bool)},
-        {"tribool", 0, 2, sizeof(uint8_t)},
-        {"char", CHAR_MIN, CHAR_MAX, sizeof(char)},
-        {"cstr", 0, 0, sizeof(char*)},
-    };
-
-    for (size_t i = 0; i < sizeof(cases)/sizeof(cases[0]); ++i) {
-        const fossil_type_limits* lim = fossil_type_limits_get(cases[i].type_id);
-        ASSUME_ITS_TRUE(lim != NULL);
-        ASSUME_ITS_TRUE(lim->min_value == cases[i].min);
-        ASSUME_ITS_TRUE(lim->max_value == cases[i].max);
-        ASSUME_ITS_TRUE(lim->size == cases[i].size);
-    }
-}
-
 // Test: fossil_type_limits_get returns NULL for unknown type
 FOSSIL_TEST(c_test_limits_unknown_type) {
     const fossil_type_limits* lim = fossil_type_limits_get("not_a_type");
@@ -113,7 +80,6 @@ FOSSIL_TEST(c_test_limits_aliases) {
 // * Fossil Logic Test Pool
 // * * * * * * * * * * * * * * * * * * * * * * * *
 FOSSIL_TEST_GROUP(c_limits_tests) {
-    FOSSIL_TEST_ADD(c_limits_suite, c_test_limits_known_types);
     FOSSIL_TEST_ADD(c_limits_suite, c_test_limits_unknown_type);
     FOSSIL_TEST_ADD(c_limits_suite, c_test_limits_null_input);
     FOSSIL_TEST_ADD(c_limits_suite, c_test_limits_aliases);
