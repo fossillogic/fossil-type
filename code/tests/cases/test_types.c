@@ -11,7 +11,7 @@
  * Copyright (C) 2024 Fossil Logic. All rights reserved.
  * -----------------------------------------------------------------------------
  */
-#include <fossil/pizza/framework.h>
+#include <fossil/maip/framework.h>
 
 #include "fossil/type/framework.h"
 
@@ -153,21 +153,21 @@ FOSSIL_TEST(c_test_type_entropy) {
 // * Fossil Logic Test Pool
 // * * * * * * * * * * * * * * * * * * * * * * * *
 FOSSIL_TEST_GROUP(c_types_tests) {
-    FOSSIL_TEST_ADD(c_types_suite, c_test_type_signed_integers);
-    FOSSIL_TEST_ADD(c_types_suite, c_test_type_unsigned_integers);
-    FOSSIL_TEST_ADD(c_types_suite, c_test_type_hex_aliases);
-    FOSSIL_TEST_ADD(c_types_suite, c_test_type_octal_aliases);
-    FOSSIL_TEST_ADD(c_types_suite, c_test_type_binary_aliases);
-    FOSSIL_TEST_ADD(c_types_suite, c_test_type_floating_point);
-    FOSSIL_TEST_ADD(c_types_suite, c_test_type_size_types);
-    FOSSIL_TEST_ADD(c_types_suite, c_test_type_char_and_string);
-    FOSSIL_TEST_ADD(c_types_suite, c_test_type_pointer_semantics);
-    FOSSIL_TEST_ADD(c_types_suite, c_test_type_handle_and_ref);
-    FOSSIL_TEST_ADD(c_types_suite, c_test_type_atom);
-    FOSSIL_TEST_ADD(c_types_suite, c_test_type_typeid_and_symbol);
-    FOSSIL_TEST_ADD(c_types_suite, c_test_type_flags);
-    FOSSIL_TEST_ADD(c_types_suite, c_test_type_node_id);
-    FOSSIL_TEST_ADD(c_types_suite, c_test_type_entropy);
+    FOSSIL_ADD_TEST(c_types_suite, c_test_type_signed_integers);
+    FOSSIL_ADD_TEST(c_types_suite, c_test_type_unsigned_integers);
+    FOSSIL_ADD_TEST(c_types_suite, c_test_type_hex_aliases);
+    FOSSIL_ADD_TEST(c_types_suite, c_test_type_octal_aliases);
+    FOSSIL_ADD_TEST(c_types_suite, c_test_type_binary_aliases);
+    FOSSIL_ADD_TEST(c_types_suite, c_test_type_floating_point);
+    FOSSIL_ADD_TEST(c_types_suite, c_test_type_size_types);
+    FOSSIL_ADD_TEST(c_types_suite, c_test_type_char_and_string);
+    FOSSIL_ADD_TEST(c_types_suite, c_test_type_pointer_semantics);
+    FOSSIL_ADD_TEST(c_types_suite, c_test_type_handle_and_ref);
+    FOSSIL_ADD_TEST(c_types_suite, c_test_type_atom);
+    FOSSIL_ADD_TEST(c_types_suite, c_test_type_typeid_and_symbol);
+    FOSSIL_ADD_TEST(c_types_suite, c_test_type_flags);
+    FOSSIL_ADD_TEST(c_types_suite, c_test_type_node_id);
+    FOSSIL_ADD_TEST(c_types_suite, c_test_type_entropy);
 
-    FOSSIL_TEST_REGISTER(c_types_suite);
+    FOSSIL_ADD_SUITE(c_types_suite);
 }

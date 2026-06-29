@@ -125,35 +125,35 @@ static const fossil_type_limits fossil_limits_table[] = {
     {"i8",  FOSSIL_I8_MIN,  FOSSIL_I8_MAX,  sizeof(int8_t)},
     {"i16", FOSSIL_I16_MIN, FOSSIL_I16_MAX, sizeof(int16_t)},
     {"i32", FOSSIL_I32_MIN, FOSSIL_I32_MAX, sizeof(int32_t)},
-    {"i64", FOSSIL_I64_MIN, FOSSIL_I64_MAX, sizeof(int64_t)},
+    {"i64", (long double)FOSSIL_I64_MIN, (long double)FOSSIL_I64_MAX, sizeof(int64_t)},
 
     /* Unsigned integers */
     {"u8", 0, FOSSIL_U8_MAX, sizeof(uint8_t)},
     {"u16",0, FOSSIL_U16_MAX,sizeof(uint16_t)},
     {"u32",0, FOSSIL_U32_MAX,sizeof(uint32_t)},
-    {"u64",0, FOSSIL_U64_MAX,sizeof(uint64_t)},
+    {"u64",0, (long double)FOSSIL_U64_MAX,sizeof(uint64_t)},
 
     /* Hex aliases */
     {"h8",  0, FOSSIL_U8_MAX,  sizeof(uint8_t)},
     {"h16", 0, FOSSIL_U16_MAX, sizeof(uint16_t)},
     {"h32", 0, FOSSIL_U32_MAX, sizeof(uint32_t)},
-    {"h64", 0, FOSSIL_U64_MAX, sizeof(uint64_t)},
+    {"h64", 0, (long double)FOSSIL_U64_MAX, sizeof(uint64_t)},
 
     /* Octal aliases */
     {"o8",  0, FOSSIL_U8_MAX,  sizeof(uint8_t)},
     {"o16", 0, FOSSIL_U16_MAX, sizeof(uint16_t)},
     {"o32", 0, FOSSIL_U32_MAX, sizeof(uint32_t)},
-    {"o64", 0, FOSSIL_U64_MAX, sizeof(uint64_t)},
+    {"o64", 0, (long double)FOSSIL_U64_MAX, sizeof(uint64_t)},
 
     /* Binary aliases */
     {"b8",  0, FOSSIL_U8_MAX,  sizeof(uint8_t)},
     {"b16", 0, FOSSIL_U16_MAX, sizeof(uint16_t)},
     {"b32", 0, FOSSIL_U32_MAX, sizeof(uint32_t)},
-    {"b64", 0, FOSSIL_U64_MAX, sizeof(uint64_t)},
+    {"b64", 0, (long double)FOSSIL_U64_MAX, sizeof(uint64_t)},
 
     /* Floating ranges represented via integer storage model */
     {"f32", FOSSIL_I32_MIN, FOSSIL_I32_MAX, sizeof(float)},
-    {"f64", FOSSIL_I64_MIN, FOSSIL_I64_MAX, sizeof(double)},
+    {"f64", (long double)FOSSIL_I64_MIN, (long double)FOSSIL_I64_MAX, sizeof(double)},
 
     /* Boolean */
     {"bool", 0, 1, sizeof(bool)},

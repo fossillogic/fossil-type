@@ -11,7 +11,7 @@
  * Copyright (C) 2024 Fossil Logic. All rights reserved.
  * -----------------------------------------------------------------------------
  */
-#include <fossil/pizza/framework.h>
+#include <fossil/maip/framework.h>
 
 #include "fossil/type/framework.h"
 
@@ -148,13 +148,13 @@ FOSSIL_TEST(cpp_test_Tribool_conversion_operator) {
 // * Fossil Logic Test Pool
 // * * * * * * * * * * * * * * * * * * * * * * * *
 FOSSIL_TEST_GROUP(cpp_tribool_tests) {
-    FOSSIL_TEST_ADD(cpp_tribool_suite, cpp_test_Tribool_default_constructor);
-    FOSSIL_TEST_ADD(cpp_tribool_suite, cpp_test_Tribool_value_constructor);
-    FOSSIL_TEST_ADD(cpp_tribool_suite, cpp_test_Tribool_predicates);
-    FOSSIL_TEST_ADD(cpp_tribool_suite, cpp_test_Tribool_not_operator);
-    FOSSIL_TEST_ADD(cpp_tribool_suite, cpp_test_Tribool_and_operator);
-    FOSSIL_TEST_ADD(cpp_tribool_suite, cpp_test_Tribool_or_operator);
-    FOSSIL_TEST_ADD(cpp_tribool_suite, cpp_test_Tribool_conversion_operator);
+    FOSSIL_ADD_TEST(cpp_tribool_suite, cpp_test_Tribool_default_constructor);
+    FOSSIL_ADD_TEST(cpp_tribool_suite, cpp_test_Tribool_value_constructor);
+    FOSSIL_ADD_TEST(cpp_tribool_suite, cpp_test_Tribool_predicates);
+    FOSSIL_ADD_TEST(cpp_tribool_suite, cpp_test_Tribool_not_operator);
+    FOSSIL_ADD_TEST(cpp_tribool_suite, cpp_test_Tribool_and_operator);
+    FOSSIL_ADD_TEST(cpp_tribool_suite, cpp_test_Tribool_or_operator);
+    FOSSIL_ADD_TEST(cpp_tribool_suite, cpp_test_Tribool_conversion_operator);
 
-    FOSSIL_TEST_REGISTER(cpp_tribool_suite);
+    FOSSIL_ADD_SUITE(cpp_tribool_suite);
 }

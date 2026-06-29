@@ -11,7 +11,7 @@
  * Copyright (C) 2024 Fossil Logic. All rights reserved.
  * -----------------------------------------------------------------------------
  */
-#include <fossil/pizza/framework.h>
+#include <fossil/maip/framework.h>
 
 #include "fossil/type/framework.h"
 
@@ -100,11 +100,11 @@ FOSSIL_TEST(c_test_feature_toggle) {
 // * Fossil Logic Test Pool
 // * * * * * * * * * * * * * * * * * * * * * * * *
 FOSSIL_TEST_GROUP(c_feature_tests) {
-    FOSSIL_TEST_ADD(c_feature_suite, c_test_feature_constructors);
-    FOSSIL_TEST_ADD(c_feature_suite, c_test_feature_is_enabled);
-    FOSSIL_TEST_ADD(c_feature_suite, c_test_feature_enable);
-    FOSSIL_TEST_ADD(c_feature_suite, c_test_feature_disable);
-    FOSSIL_TEST_ADD(c_feature_suite, c_test_feature_toggle);
+    FOSSIL_ADD_TEST(c_feature_suite, c_test_feature_constructors);
+    FOSSIL_ADD_TEST(c_feature_suite, c_test_feature_is_enabled);
+    FOSSIL_ADD_TEST(c_feature_suite, c_test_feature_enable);
+    FOSSIL_ADD_TEST(c_feature_suite, c_test_feature_disable);
+    FOSSIL_ADD_TEST(c_feature_suite, c_test_feature_toggle);
 
-    FOSSIL_TEST_REGISTER(c_feature_suite);
+    FOSSIL_ADD_SUITE(c_feature_suite);
 }
